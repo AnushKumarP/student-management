@@ -100,7 +100,9 @@ export interface ApiAttendanceRecord {
   id: number;
   remarks?: string;
   attendanceStatus?: string;
+  present?: boolean;
   student?: ApiStudent;
+  session?: ApiAttendanceSession;
   attendanceSession?: ApiAttendanceSession;
 }
 

@@ -27,6 +27,7 @@ public class UserService {
 
         User user = new User();
         user.setEmail(email);
+        user.setDisplayName(email.substring(0, email.indexOf('@')));
         user.setPasswordHash(password);   
         user.setRole(role);
 

@@ -25,7 +25,9 @@ export function TeacherDashboard() {
   ).size;
 
   const presentCount = data.attendanceRecords.filter(
-    (record) => record.attendanceStatus?.toLowerCase() === "present",
+    (record) =>
+      record.present === true ||
+      record.attendanceStatus?.toLowerCase() === "present",
   ).length;
   const attendanceRate = data.attendanceRecords.length
     ? Math.round((presentCount / data.attendanceRecords.length) * 100)

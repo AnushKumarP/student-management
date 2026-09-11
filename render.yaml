@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: smart-student-demo
+    runtime: docker
+    plan: free
+    healthCheckPath: /actuator/health
+    autoDeployTrigger: commit

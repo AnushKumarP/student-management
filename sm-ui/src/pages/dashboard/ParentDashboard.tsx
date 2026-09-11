@@ -61,7 +61,9 @@ export function ParentDashboard() {
   ];
 
   const presentCount = data.attendanceRecords.filter(
-    (record) => record.attendanceStatus?.toLowerCase() === "present",
+    (record) =>
+      record.present === true ||
+      record.attendanceStatus?.toLowerCase() === "present",
   ).length;
   const avgAttendance = data.attendanceRecords.length
     ? Math.round((presentCount / data.attendanceRecords.length) * 100)

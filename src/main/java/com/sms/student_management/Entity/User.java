@@ -1,5 +1,6 @@
 package com.sms.student_management.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,7 +14,11 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-     @Column(name = "password_hash", nullable = false)
+    @Column(name = "display_name", nullable = false)
+    private String displayName;
+
+    @JsonIgnore
+    @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
     @Enumerated(EnumType.STRING)
@@ -32,6 +37,12 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getDisplayName() {
+        return displayName;
+    }
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
     public String getPasswordHash() {
         return passwordHash;

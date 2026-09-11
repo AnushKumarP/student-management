@@ -19,6 +19,13 @@ export function Login() {
       (location.state as { selectedRole?: Role })?.selectedRole || "student",
   });
 
+  const demoAccounts: { role: Role; email: string }[] = [
+    { role: "admin", email: "admin@demo.edu" },
+    { role: "teacher", email: "teacher@demo.edu" },
+    { role: "student", email: "student@demo.edu" },
+    { role: "parent", email: "parent@demo.edu" },
+  ];
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     try {
@@ -44,6 +51,31 @@ export function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="rounded-lg border border-blue-200 bg-blue-50 p-3">
+            <p className="text-sm font-semibold text-blue-900">Recruiter demo accounts</p>
+            <p className="mt-1 text-xs text-blue-700">
+              Select an account to fill the form. Password: <strong>Demo123!</strong>
+            </p>
+            <div className="mt-3 grid grid-cols-2 gap-2">
+              {demoAccounts.map((account) => (
+                <button
+                  key={account.role}
+                  type="button"
+                  onClick={() =>
+                    setFormData({
+                      role: account.role,
+                      email: account.email,
+                      password: "Demo123!",
+                    })
+                  }
+                  className="rounded-md border border-blue-200 bg-white px-2 py-2 text-xs font-medium capitalize text-blue-800 hover:bg-blue-100"
+                >
+                  Use {account.role}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* Role Selection */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">

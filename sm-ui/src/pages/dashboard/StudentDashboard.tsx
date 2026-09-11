@@ -48,7 +48,9 @@ export function StudentDashboard() {
   ];
 
   const attendancePresent = data.attendanceRecords.filter(
-    (record) => record.attendanceStatus?.toLowerCase() === "present",
+    (record) =>
+      record.present === true ||
+      record.attendanceStatus?.toLowerCase() === "present",
   ).length;
   const attendanceRate = data.attendanceRecords.length
     ? Math.round((attendancePresent / data.attendanceRecords.length) * 100)
