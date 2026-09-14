@@ -6,7 +6,9 @@ The React application and Spring Boot REST API are packaged as one Docker servic
 
 ## Live demo
 
-The public Render link will be added here after the first deployment.
+[Open Live Demo](https://smart-student-demo.onrender.com) · [Portfolio](https://logicharbor.dev) · [View Source](https://github.com/AnushKumarP/student-management)
+
+> Render's free service may need a short warm-up after a period of inactivity.
 
 ### Demo accounts
 
